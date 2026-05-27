@@ -1,0 +1,289 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\C#\\PRN232.Lab1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\controllers\\enrollmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\enrollmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|d:\\c#\\prn232.lab1\\prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|solutionrelative:prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|solutionrelative:launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|d:\\c#\\prn232.lab1\\prn232.lms.repositories\\data\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|solutionrelative:prn232.lms.repositories\\data\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|solutionrelative:docker-compose.dcproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F274034-324B-49CE-B37B-AB90877D05D3}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|d:\\c#\\prn232.lab1\\prn232.lms.services\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F274034-324B-49CE-B37B-AB90877D05D3}|PRN232.LMS.Services\\PRN232.LMS.Services.csproj|solutionrelative:prn232.lms.services\\services\\enrollmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 25,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1897919155:0:{83107a3e-496a-485e-b455-16ddb978e55e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:20:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:28:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{28836128-fc2c-11d2-a433-00c04f72d18a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\StudentsController.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "PRN232.LMS.API\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAwwGAAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T12:25:47.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\CoursesController.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "PRN232.LMS.API\\Controllers\\CoursesController.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-24T12:03:21.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "PRN232.LMS.API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAACwAAAAAAAAAAAAkwDwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-22T06:18:24.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\launchSettings.json",
+              "RelativeDocumentMoniker": "launchSettings.json",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\launchSettings.json",
+              "RelativeToolTip": "launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-22T06:18:15.092Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Program.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Program.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Program.cs",
+              "RelativeToolTip": "PRN232.LMS.API\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAkwDEAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T06:17:50.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2026-05-21T14:49:04.229Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "docker-compose.dcproj",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\docker-compose.dcproj",
+              "RelativeDocumentMoniker": "docker-compose.dcproj",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\docker-compose.dcproj",
+              "RelativeToolTip": "docker-compose.dcproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-05-21T14:47:47.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Dockerfile",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Dockerfile",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Dockerfile",
+              "RelativeToolTip": "PRN232.LMS.API\\Dockerfile",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAkwB8AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-05-21T14:46:34.955Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EnrollmentsController.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
+              "RelativeToolTip": "PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwBMAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T14:25:05.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "EnrollmentService.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Services\\Services\\EnrollmentService.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.Services\\Services\\EnrollmentService.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Services\\Services\\EnrollmentService.cs",
+              "RelativeToolTip": "PRN232.LMS.Services\\Services\\EnrollmentService.cs",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T14:24:53.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\appsettings.json",
+              "RelativeDocumentMoniker": "PRN232.LMS.API\\appsettings.json",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\appsettings.json",
+              "RelativeToolTip": "PRN232.LMS.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-21T14:07:39.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LmsDbContext.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
+              "RelativeToolTip": "PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwCoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T14:02:55.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Course.cs",
+              "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Entities\\Course.cs",
+              "RelativeDocumentMoniker": "PRN232.LMS.Repositories\\Entities\\Course.cs",
+              "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Entities\\Course.cs",
+              "RelativeToolTip": "PRN232.LMS.Repositories\\Entities\\Course.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-21T14:02:52.521Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
