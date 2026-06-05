@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "D:\\C#\\PRN232.Lab1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\studentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|d:\\c#\\prn232.lab1\\prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|solutionrelative:prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,16 +31,8 @@
       "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\controllers\\enrollmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|d:\\c#\\prn232.lab1\\prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|solutionrelative:prn232.lms.repositories\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{81DDED9D-158B-E303-5F62-77A2896D2A5A}|docker-compose.dcproj|d:\\c#\\prn232.lab1\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -37,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|d:\\c#\\prn232.lab1\\prn232.lms.repositories\\data\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9C054AE9-148D-46B0-9E21-9064AA08E653}|PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj|solutionrelative:prn232.lms.repositories\\data\\lmsdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|solutionrelative:prn232.lms.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{15221426-C97F-4207-B7EE-45E90F31DA32}|PRN232.LMS.API\\PRN232.LMS.API.csproj|d:\\c#\\prn232.lab1\\prn232.lms.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 15,
           "Children": [
             {
               "$type": "Bookmark",
@@ -126,7 +126,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "StudentsController.cs",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\StudentsController.cs",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\StudentsController.cs",
@@ -134,11 +134,12 @@
               "RelativeToolTip": "PRN232.LMS.API\\Controllers\\StudentsController.cs",
               "ViewState": "AgIAAFsAAAAAAAAAAAAwwGAAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-24T12:25:47.362Z"
+              "WhenOpened": "2026-05-24T12:25:47.362Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "CoursesController.cs",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\CoursesController.cs",
@@ -150,7 +151,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Properties\\launchSettings.json",
@@ -162,7 +163,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\launchSettings.json",
               "RelativeDocumentMoniker": "launchSettings.json",
@@ -186,15 +187,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "D:\\C#\\PRN232.Lab1\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABUAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2026-05-21T14:49:04.229Z"
+              "WhenOpened": "2026-05-21T14:49:04.229Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -206,23 +208,25 @@
               "RelativeToolTip": "docker-compose.dcproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-05-21T14:47:47.66Z"
+              "WhenOpened": "2026-05-21T14:47:47.66Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Dockerfile",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Dockerfile",
               "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Dockerfile",
               "RelativeToolTip": "PRN232.LMS.API\\Dockerfile",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAkwB8AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-05-21T14:46:34.955Z"
+              "WhenOpened": "2026-05-21T14:46:34.955Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "EnrollmentsController.cs",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\Controllers\\EnrollmentsController.cs",
@@ -246,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.API\\appsettings.json",
               "RelativeDocumentMoniker": "PRN232.LMS.API\\appsettings.json",
@@ -259,7 +263,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "LmsDbContext.cs",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
               "RelativeDocumentMoniker": "PRN232.LMS.Repositories\\Data\\LmsDbContext.cs",
@@ -271,15 +275,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Course.cs",
               "DocumentMoniker": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Entities\\Course.cs",
               "RelativeDocumentMoniker": "PRN232.LMS.Repositories\\Entities\\Course.cs",
               "ToolTip": "D:\\C#\\PRN232.Lab1\\PRN232.LMS.Repositories\\Entities\\Course.cs",
               "RelativeToolTip": "PRN232.LMS.Repositories\\Entities\\Course.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-21T14:02:52.521Z"
+              "WhenOpened": "2026-05-21T14:02:52.521Z",
+              "EditorCaption": ""
             }
           ]
         }

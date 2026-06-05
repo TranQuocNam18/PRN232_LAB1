@@ -1,0 +1,36 @@
+## Visual Studio Temp and User files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bin/
+obj/
+
+## Publish profiles and publishing output
+Properties/PublishProfiles/
+dist/
+publish/
+
+## Docker temporary files
+.dockerignore
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Mono auto generated files
+mono_crash.*
+
+## Nested VS projects
+[Bb]in/
+[Oo]bj/

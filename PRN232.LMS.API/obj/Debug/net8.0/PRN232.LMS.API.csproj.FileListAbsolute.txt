@@ -147,4 +147,4 @@ D:\C#\PRN232.Lab1\PRN232.LMS.API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Work
 D:\C#\PRN232.Lab1\PRN232.LMS.API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\C#\PRN232.Lab1\PRN232.LMS.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\C#\PRN232.Lab1\PRN232.LMS.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\C#\PRN232.Lab1\PRN232.LMS.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+d:\C#\PRN232.Lab1\PRN232.LMS.API\obj\Debug\net8.0\PRN232.LMS.API.sourcelink.json

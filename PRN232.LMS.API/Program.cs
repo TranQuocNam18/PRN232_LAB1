@@ -42,6 +42,36 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
+    await db.Database.MigrateAsync();
+
+    if (!await db.Semesters.AnyAsync())
+    {
+        DirectoryInfo? currentDirectory = new(AppContext.BaseDirectory);
+        string? seedScriptPath = null;
+
+        while (currentDirectory != null && seedScriptPath == null)
+        {
+            var candidatePath = Path.Combine(currentDirectory.FullName, "seed-data.sql");
+            if (File.Exists(candidatePath))
+            {
+                seedScriptPath = candidatePath;
+                break;
+            }
+
+            currentDirectory = currentDirectory.Parent;
+        }
+
+        if (seedScriptPath != null)
+        {
+            var seedSql = await File.ReadAllTextAsync(seedScriptPath);
+            await db.Database.ExecuteSqlRawAsync(seedSql);
+        }
+    }
+}
+
 app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "LMS API v1"));
 
