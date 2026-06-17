@@ -29,4 +29,5 @@ RUN dotnet publish "./PRN232.LMS.API.csproj" -c $BUILD_CONFIGURATION -o /app/pub
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY seed-data.sql .
 ENTRYPOINT ["dotnet", "PRN232.LMS.API.dll"]

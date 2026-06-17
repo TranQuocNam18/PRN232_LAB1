@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PRN232.LMS.Repositories.Entities;
 using PRN232.LMS.Repositories.Interfaces;
 using PRN232.LMS.Services.Interfaces;
@@ -24,6 +24,7 @@ namespace PRN232.LMS.Services.Services
                 FullName = s.FullName,
                 Email = s.Email,
                 DateOfBirth = s.DateOfBirth,
+                StudentCode = s.StudentCode,
                 Enrollments = includeEnrollments
                     ? s.Enrollments.Select(e => new EnrollmentResponse
                     {
@@ -83,13 +84,25 @@ namespace PRN232.LMS.Services.Services
 
         public async Task<StudentResponse> CreateAsync(StudentRequest req)
         {
-            var entity = new Student { FullName = req.FullName, Email = req.Email, DateOfBirth = req.DateOfBirth };
+            var entity = new Student 
+            { 
+                FullName = req.FullName, 
+                Email = req.Email, 
+                DateOfBirth = req.DateOfBirth,
+                StudentCode = req.StudentCode
+            };
             return Map(await _repo.CreateAsync(entity));
         }
 
         public async Task<StudentResponse?> UpdateAsync(int id, StudentRequest req)
         {
-            var updated = await _repo.UpdateAsync(id, new Student { FullName = req.FullName, Email = req.Email, DateOfBirth = req.DateOfBirth });
+            var updated = await _repo.UpdateAsync(id, new Student 
+            { 
+                FullName = req.FullName, 
+                Email = req.Email, 
+                DateOfBirth = req.DateOfBirth,
+                StudentCode = req.StudentCode
+            });
             return updated == null ? null : Map(updated);
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +12,7 @@ namespace PRN232.LMS.Repositories.Entities
         public string FullName { get; set; } = null!;
         public string Email { get; set; } = null!;
         public DateTime DateOfBirth { get; set; }
+        public string? StudentCode { get; set; }
         public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>();
     }
 

@@ -1,20 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.API.Helper;
 using PRN232.LMS.Services.Interfaces;
 using PRN232.LMS.Services.Models.Requests;
 using PRN232.LMS.Services.Models.Responses;
 
-namespace PRN232.LMS.API.Controllers
+namespace PRN232.LMS.API.Controllers.v1
 {
     [ApiController]
-    [Route("api/[controller]")]
-    [Produces("application/json")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/semesters")]
+    [Produces("application/json", "application/xml")]
     public class SemestersController : ControllerBase
     {
         private readonly ISemesterService _service;
         public SemestersController(ISemesterService service) => _service = service;
 
-        /// <summary>Lấy danh sách semesters (search, sort, paging, expand)</summary>
+        /// <summary>Lấy danh sách semesters (search, sort, paging)</summary>
         [HttpGet]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<SemesterResponse>>), 200)]
         public async Task<IActionResult> GetAll([FromQuery] QueryParams q)
@@ -24,37 +27,29 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>Lấy semester theo ID (kèm courses)</summary>
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 200)]
         [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 404)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var result = await _service.GetByIdAsync(id);
             if (result == null) return NotFound(ApiResponse<SemesterResponse>.Fail("Semester not found"));
             return Ok(ApiResponse<SemesterResponse>.Ok(result));
         }
 
-        /// <summary>Lấy danh sách courses của semester (search, sort, paging)</summary>
-        [HttpGet("{id}/courses")]
+        /// <summary>Lấy courses của semester</summary>
+        [HttpGet("{id:int}/courses")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<CourseResponse>>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<PagedResult<CourseResponse>>), 404)]
-        public async Task<IActionResult> GetCoursesBySemesterId(int id, [FromQuery] QueryParams q)
+        public async Task<IActionResult> GetCoursesBySemesterId([FromRoute] int id, [FromQuery] QueryParams q)
         {
-            try
-            {
-                var result = await _service.GetCoursesBySemesterIdAsync(id, q);
-                return Ok(ApiResponse<PagedResult<CourseResponse>>.Ok(result));
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound(ApiResponse<PagedResult<CourseResponse>>.Fail("Semester not found"));
-            }
+            var result = await _service.GetCoursesBySemesterIdAsync(id, q);
+            return Ok(ApiResponse<PagedResult<CourseResponse>>.Ok(result));
         }
 
         /// <summary>Tạo semester mới</summary>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 201)]
-        [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 400)]
         public async Task<IActionResult> Create([FromBody] SemesterRequest request)
         {
             if (!ModelState.IsValid)
@@ -64,10 +59,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>Cập nhật semester</summary>
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<SemesterResponse>), 404)]
-        public async Task<IActionResult> Update(int id, [FromBody] SemesterRequest request)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] SemesterRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ApiResponse<SemesterResponse>.Fail("Invalid request", ModelState));
@@ -76,11 +71,11 @@ namespace PRN232.LMS.API.Controllers
             return Ok(ApiResponse<SemesterResponse>.Ok(result, "Semester updated"));
         }
 
-        /// <summary>Xoá semester</summary>
-        [HttpDelete("{id}")]
+        /// <summary>Xoá semester (Admin only)</summary>
+        [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(ApiResponse<object>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<object>), 404)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var deleted = await _service.DeleteAsync(id);
             if (!deleted) return NotFound(ApiResponse<object>.Fail("Semester not found"));

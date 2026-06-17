@@ -79,6 +79,34 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.ToTable("Enrollments");
                 });
 
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.RefreshToken", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Expires")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Semester", b =>
                 {
                     b.Property<int>("SemesterId")
@@ -121,6 +149,9 @@ namespace PRN232.LMS.Repositories.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("StudentCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("StudentId");
 
                     b.ToTable("Students");
@@ -148,6 +179,31 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.HasKey("SubjectId");
 
                     b.ToTable("Subjects");
+                });
+
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Course", b =>
@@ -187,6 +243,17 @@ namespace PRN232.LMS.Repositories.Migrations
                     b.Navigation("Student");
                 });
 
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.RefreshToken", b =>
+                {
+                    b.HasOne("PRN232.LMS.Repositories.Entities.User", "User")
+                        .WithMany("RefreshTokens")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Course", b =>
                 {
                     b.Navigation("Enrollments");
@@ -205,6 +272,11 @@ namespace PRN232.LMS.Repositories.Migrations
             modelBuilder.Entity("PRN232.LMS.Repositories.Entities.Subject", b =>
                 {
                     b.Navigation("Courses");
+                });
+
+            modelBuilder.Entity("PRN232.LMS.Repositories.Entities.User", b =>
+                {
+                    b.Navigation("RefreshTokens");
                 });
 #pragma warning restore 612, 618
         }

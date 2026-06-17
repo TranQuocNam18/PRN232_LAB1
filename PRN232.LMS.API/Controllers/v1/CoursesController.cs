@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.API.Helper;
 using PRN232.LMS.Services.Interfaces;
 using PRN232.LMS.Services.Models.Requests;
 using PRN232.LMS.Services.Models.Responses;
 
-namespace PRN232.LMS.API.Controllers
+namespace PRN232.LMS.API.Controllers.v1
 {
     [ApiController]
-    [Route("api/[controller]")]
-    [Produces("application/json")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/courses")]
+    [Produces("application/json", "application/xml")]
     public class CoursesController : ControllerBase
     {
         private readonly ICourseService _service;
@@ -23,53 +26,38 @@ namespace PRN232.LMS.API.Controllers
             return Ok(ApiResponse<PagedResult<CourseResponse>>.Ok(result));
         }
 
-        /// <summary>Lấy course theo ID (kèm semester)</summary>
-        [HttpGet("{id}")]
+        /// <summary>Lấy course theo ID</summary>
+        [HttpGet("{id:int}")]
         [ProducesResponseType(typeof(ApiResponse<CourseResponse>), 200)]
         [ProducesResponseType(typeof(ApiResponse<CourseResponse>), 404)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var result = await _service.GetByIdAsync(id);
             if (result == null) return NotFound(ApiResponse<CourseResponse>.Fail("Course not found"));
             return Ok(ApiResponse<CourseResponse>.Ok(result));
         }
 
-        /// <summary>Lấy danh sách enrollments của course (search, sort, paging)</summary>
-        [HttpGet("{id}/enrollments")]
+        /// <summary>Lấy enrollments của course</summary>
+        [HttpGet("{id:int}/enrollments")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<EnrollmentResponse>>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<PagedResult<EnrollmentResponse>>), 404)]
-        public async Task<IActionResult> GetEnrollmentsByCourseId(int id, [FromQuery] QueryParams q)
+        public async Task<IActionResult> GetEnrollmentsByCourseId([FromRoute] int id, [FromQuery] QueryParams q)
         {
-            try
-            {
-                var result = await _service.GetEnrollmentsByCourseIdAsync(id, q);
-                return Ok(ApiResponse<PagedResult<EnrollmentResponse>>.Ok(result));
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound(ApiResponse<PagedResult<EnrollmentResponse>>.Fail("Course not found"));
-            }
+            var result = await _service.GetEnrollmentsByCourseIdAsync(id, q);
+            return Ok(ApiResponse<PagedResult<EnrollmentResponse>>.Ok(result));
         }
 
-        /// <summary>Lấy danh sách subjects của course (search, sort, paging)</summary>
-        [HttpGet("{id}/subjects")]
+        /// <summary>Lấy subjects của course</summary>
+        [HttpGet("{id:int}/subjects")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<SubjectResponse>>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<PagedResult<SubjectResponse>>), 404)]
-        public async Task<IActionResult> GetSubjectsByCourseId(int id, [FromQuery] QueryParams q)
+        public async Task<IActionResult> GetSubjectsByCourseId([FromRoute] int id, [FromQuery] QueryParams q)
         {
-            try
-            {
-                var result = await _service.GetSubjectsByCourseIdAsync(id, q);
-                return Ok(ApiResponse<PagedResult<SubjectResponse>>.Ok(result));
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound(ApiResponse<PagedResult<SubjectResponse>>.Fail("Course not found"));
-            }
+            var result = await _service.GetSubjectsByCourseIdAsync(id, q);
+            return Ok(ApiResponse<PagedResult<SubjectResponse>>.Ok(result));
         }
 
         /// <summary>Tạo course mới</summary>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<CourseResponse>), 201)]
         public async Task<IActionResult> Create([FromBody] CourseRequest request)
         {
@@ -80,10 +68,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>Cập nhật course</summary>
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<CourseResponse>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<CourseResponse>), 404)]
-        public async Task<IActionResult> Update(int id, [FromBody] CourseRequest request)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] CourseRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ApiResponse<CourseResponse>.Fail("Invalid request", ModelState));
@@ -92,11 +80,11 @@ namespace PRN232.LMS.API.Controllers
             return Ok(ApiResponse<CourseResponse>.Ok(result, "Course updated"));
         }
 
-        /// <summary>Xoá course</summary>
-        [HttpDelete("{id}")]
+        /// <summary>Xoá course (Admin only)</summary>
+        [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(ApiResponse<object>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<object>), 404)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var deleted = await _service.DeleteAsync(id);
             if (!deleted) return NotFound(ApiResponse<object>.Fail("Course not found"));

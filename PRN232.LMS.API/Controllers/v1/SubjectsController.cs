@@ -1,14 +1,17 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PRN232.LMS.API.Helper;
 using PRN232.LMS.Services.Interfaces;
 using PRN232.LMS.Services.Models.Requests;
 using PRN232.LMS.Services.Models.Responses;
 
-namespace PRN232.LMS.API.Controllers
+namespace PRN232.LMS.API.Controllers.v1
 {
     [ApiController]
-    [Route("api/[controller]")]
-    [Produces("application/json")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/subjects")]
+    [Produces("application/json", "application/xml")]
     public class SubjectsController : ControllerBase
     {
         private readonly ISubjectService _service;
@@ -24,35 +27,28 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>Lấy subject theo ID</summary>
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         [ProducesResponseType(typeof(ApiResponse<SubjectResponse>), 200)]
         [ProducesResponseType(typeof(ApiResponse<SubjectResponse>), 404)]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var result = await _service.GetByIdAsync(id);
             if (result == null) return NotFound(ApiResponse<SubjectResponse>.Fail("Subject not found"));
             return Ok(ApiResponse<SubjectResponse>.Ok(result));
         }
 
-        /// <summary>Lấy danh sách courses của subject (search, sort, paging)</summary>
-        [HttpGet("{id}/courses")]
+        /// <summary>Lấy courses của subject</summary>
+        [HttpGet("{id:int}/courses")]
         [ProducesResponseType(typeof(ApiResponse<PagedResult<CourseResponse>>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<PagedResult<CourseResponse>>), 404)]
-        public async Task<IActionResult> GetCoursesBySubjectId(int id, [FromQuery] QueryParams q)
+        public async Task<IActionResult> GetCoursesBySubjectId([FromRoute] int id, [FromQuery] QueryParams q)
         {
-            try
-            {
-                var result = await _service.GetCoursesBySubjectIdAsync(id, q);
-                return Ok(ApiResponse<PagedResult<CourseResponse>>.Ok(result));
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound(ApiResponse<PagedResult<CourseResponse>>.Fail("Subject not found"));
-            }
+            var result = await _service.GetCoursesBySubjectIdAsync(id, q);
+            return Ok(ApiResponse<PagedResult<CourseResponse>>.Ok(result));
         }
 
         /// <summary>Tạo subject mới</summary>
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<SubjectResponse>), 201)]
         public async Task<IActionResult> Create([FromBody] SubjectRequest request)
         {
@@ -63,10 +59,10 @@ namespace PRN232.LMS.API.Controllers
         }
 
         /// <summary>Cập nhật subject</summary>
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
+        [Authorize]
         [ProducesResponseType(typeof(ApiResponse<SubjectResponse>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<SubjectResponse>), 404)]
-        public async Task<IActionResult> Update(int id, [FromBody] SubjectRequest request)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] SubjectRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ApiResponse<SubjectResponse>.Fail("Invalid request", ModelState));
@@ -75,11 +71,11 @@ namespace PRN232.LMS.API.Controllers
             return Ok(ApiResponse<SubjectResponse>.Ok(result, "Subject updated"));
         }
 
-        /// <summary>Xoá subject</summary>
-        [HttpDelete("{id}")]
+        /// <summary>Xoá subject (Admin only)</summary>
+        [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(ApiResponse<object>), 200)]
-        [ProducesResponseType(typeof(ApiResponse<object>), 404)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var deleted = await _service.DeleteAsync(id);
             if (!deleted) return NotFound(ApiResponse<object>.Fail("Subject not found"));

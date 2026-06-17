@@ -9,12 +9,19 @@ services:
       - "5001:8080"
 
     depends_on:
-      - sqlserver
+      sqlserver:
+        condition: service_healthy
 
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
       - ConnectionStrings__Default=Server=sqlserver;Database=LMSDB;User Id=sa;Password=YourPassword123!;TrustServerCertificate=True
+      - Jwt__Key=PRN232-LMS-SuperSecretKey-ChangeInProduction-AtLeast32Chars!
+      - Jwt__Issuer=PRN232.LMS.API
+      - Jwt__Audience=PRN232.LMS.Client
+      - Jwt__ExpiryMinutes=60
+
+    restart: on-failure
 
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -25,3 +32,10 @@ services:
 
     ports:
       - "1434:1433"
+
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'YourPassword123!' -Q 'SELECT 1' -No -C || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
