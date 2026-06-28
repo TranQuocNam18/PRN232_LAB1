@@ -1707,6 +1707,7 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "FluentValidation": "11.11.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "PRN232.LMS.Repositories": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.2"
         },
@@ -4647,11 +4648,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C\\PRN232.Lab1\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
+      "projectUniqueName": "D:\\C\\PRN232.Lab2\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
       "projectName": "PRN232.LMS.API",
-      "projectPath": "D:\\C\\PRN232.Lab1\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
+      "projectPath": "D:\\C\\PRN232.Lab2\\PRN232.LMS.API\\PRN232.LMS.API.csproj",
       "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "D:\\C\\PRN232.Lab1\\PRN232.LMS.API\\obj\\",
+      "outputPath": "D:\\C\\PRN232.Lab2\\PRN232.LMS.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4672,8 +4673,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\C\\PRN232.Lab1\\PRN232.LMS.Services\\PRN232.LMS.Services.csproj": {
-              "projectPath": "D:\\C\\PRN232.Lab1\\PRN232.LMS.Services\\PRN232.LMS.Services.csproj"
+            "D:\\C\\PRN232.Lab2\\PRN232.LMS.Services\\PRN232.LMS.Services.csproj": {
+              "projectPath": "D:\\C\\PRN232.Lab2\\PRN232.LMS.Services\\PRN232.LMS.Services.csproj"
             }
           }
         }

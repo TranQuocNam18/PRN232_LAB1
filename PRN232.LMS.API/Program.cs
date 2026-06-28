@@ -144,14 +144,20 @@ using (var scope = app.Services.CreateScope())
     }
 
     // Seed admin user
-    if (!await db.Users.AnyAsync(u => u.Username == "admin"))
+    var adminUser = await db.Users.FirstOrDefaultAsync(u => u.Username == "admin");
+    if (adminUser == null)
     {
         db.Users.Add(new User
         {
             Username = "admin",
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456"),
             Role = "Admin"
         });
+        await db.SaveChangesAsync();
+    }
+    else
+    {
+        adminUser.PasswordHash = BCrypt.Net.BCrypt.HashPassword("123456");
         await db.SaveChangesAsync();
     }
 }

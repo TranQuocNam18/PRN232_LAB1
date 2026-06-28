@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C\\PRN232.Lab1\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj": {}
+    "D:\\C\\PRN232.Lab2\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj": {}
   },
   "projects": {
-    "D:\\C\\PRN232.Lab1\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj": {
+    "D:\\C\\PRN232.Lab2\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C\\PRN232.Lab1\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj",
+        "projectUniqueName": "D:\\C\\PRN232.Lab2\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj",
         "projectName": "PRN232.LMS.Repositories",
-        "projectPath": "D:\\C\\PRN232.Lab1\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj",
+        "projectPath": "D:\\C\\PRN232.Lab2\\PRN232.LMS.Repositories\\PRN232.LMS.Repositories.csproj",
         "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-        "outputPath": "D:\\C\\PRN232.Lab1\\PRN232.LMS.Repositories\\obj\\",
+        "outputPath": "D:\\C\\PRN232.Lab2\\PRN232.LMS.Repositories\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -31,3 +31,4 @@ D:\C#\PRN232.Lab1\obj\Debug\docker-compose.dcproj.AssemblyReference.cache
 D:\C#\PRN232.Lab1\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 D:\C#\PRN232.Lab1\obj\Debug\docker-c.35A3FFBA.Up2Date
 D:\C\PRN232.Lab1\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+D:\C\PRN232.Lab2\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

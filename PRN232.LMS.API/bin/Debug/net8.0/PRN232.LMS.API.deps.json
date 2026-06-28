@@ -1044,6 +1044,7 @@
       "PRN232.LMS.Services/1.0.0": {
         "dependencies": {
           "FluentValidation": "11.11.0",
+          "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "PRN232.LMS.Repositories": "1.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.0.2"
         },
