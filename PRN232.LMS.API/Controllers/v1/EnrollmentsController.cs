@@ -12,6 +12,7 @@ namespace PRN232.LMS.API.Controllers.v1
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/enrollments")]
     [Produces("application/json", "application/xml")]
+    [Authorize]
     public class EnrollmentsController : ControllerBase
     {
         private readonly IEnrollmentService _service;

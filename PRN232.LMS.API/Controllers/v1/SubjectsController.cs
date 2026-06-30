@@ -12,6 +12,7 @@ namespace PRN232.LMS.API.Controllers.v1
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/subjects")]
     [Produces("application/json", "application/xml")]
+    [Authorize]
     public class SubjectsController : ControllerBase
     {
         private readonly ISubjectService _service;

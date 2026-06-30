@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PRN232.LMS.Repositories.Entities;
 using PRN232.LMS.Repositories.Interfaces;
 using PRN232.LMS.Services.Interfaces;
@@ -15,7 +15,15 @@ namespace PRN232.LMS.Services.Services
     public class EnrollmentService : IEnrollmentService
     {
         private readonly IEnrollmentRepository _repo;
-        public EnrollmentService(IEnrollmentRepository repo) => _repo = repo;
+        private readonly IStudentRepository _studentRepo;
+        private readonly ICourseRepository _courseRepo;
+
+        public EnrollmentService(IEnrollmentRepository repo, IStudentRepository studentRepo, ICourseRepository courseRepo)
+        {
+            _repo = repo;
+            _studentRepo = studentRepo;
+            _courseRepo = courseRepo;
+        }
 
         private static EnrollmentResponse Map(Enrollment e, bool includeStudent = false, bool includeCourse = false, string? fields = null) => 
             FieldFilterHelper.ApplyFieldFilter(new EnrollmentResponse()
@@ -86,6 +94,18 @@ namespace PRN232.LMS.Services.Services
 
         public async Task<EnrollmentResponse> CreateAsync(EnrollmentRequest req)
         {
+            var student = await _studentRepo.GetByIdAsync(req.StudentId);
+            if (student == null)
+            {
+                throw new KeyNotFoundException($"Student with ID {req.StudentId} not found");
+            }
+
+            var course = await _courseRepo.GetByIdAsync(req.CourseId);
+            if (course == null)
+            {
+                throw new KeyNotFoundException($"Course with ID {req.CourseId} not found");
+            }
+
             var entity = new Enrollment
             {
                 StudentId = req.StudentId,
@@ -98,6 +118,18 @@ namespace PRN232.LMS.Services.Services
 
         public async Task<EnrollmentResponse?> UpdateAsync(int id, EnrollmentRequest req)
         {
+            var student = await _studentRepo.GetByIdAsync(req.StudentId);
+            if (student == null)
+            {
+                throw new KeyNotFoundException($"Student with ID {req.StudentId} not found");
+            }
+
+            var course = await _courseRepo.GetByIdAsync(req.CourseId);
+            if (course == null)
+            {
+                throw new KeyNotFoundException($"Course with ID {req.CourseId} not found");
+            }
+
             var updated = await _repo.UpdateAsync(id, new Enrollment
             {
                 StudentId = req.StudentId,
