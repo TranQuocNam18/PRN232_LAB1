@@ -26,7 +26,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Database Context
-builder.Services.AddDbContext<LmsDbContext, CourseDbContext>(opt =>
+builder.Services.AddDbContext<LmsDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Repositories
@@ -122,36 +122,103 @@ var app = builder.Build();
 // Run Migrations and Seeding
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<CourseDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
     await db.Database.MigrateAsync();
 
     if (!await db.Semesters.AnyAsync())
     {
-        // Resolve path to seed-data.sql
-        DirectoryInfo? currentDirectory = new(AppContext.BaseDirectory);
-        string? seedScriptPath = null;
-        while (currentDirectory != null && seedScriptPath == null)
+        db.Semesters.AddRange(
+            new Semester { SemesterId = 1, SemesterName = "Fall 2024", StartDate = DateTime.Parse("2024-09-01"), EndDate = DateTime.Parse("2024-12-31") },
+            new Semester { SemesterId = 2, SemesterName = "Spring 2025", StartDate = DateTime.Parse("2025-01-15"), EndDate = DateTime.Parse("2025-05-31") },
+            new Semester { SemesterId = 3, SemesterName = "Summer 2025", StartDate = DateTime.Parse("2025-06-01"), EndDate = DateTime.Parse("2025-08-31") },
+            new Semester { SemesterId = 4, SemesterName = "Fall 2025", StartDate = DateTime.Parse("2025-09-01"), EndDate = DateTime.Parse("2025-12-31") },
+            new Semester { SemesterId = 5, SemesterName = "Spring 2026", StartDate = DateTime.Parse("2026-01-15"), EndDate = DateTime.Parse("2026-05-31") }
+        );
+        
+        await db.Database.OpenConnectionAsync();
+        try
         {
-            var candidatePath = Path.Combine(currentDirectory.FullName, "seed-data.sql");
-            if (File.Exists(candidatePath)) { seedScriptPath = candidatePath; break; }
-            currentDirectory = currentDirectory.Parent;
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Semesters ON");
+            await db.SaveChangesAsync();
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Semesters OFF");
         }
+        finally { await db.Database.CloseConnectionAsync(); }
 
-        if (seedScriptPath != null)
+        db.Subjects.AddRange(
+            new Subject { SubjectId = 1, SubjectCode = "CS101", SubjectName = "Introduction to Programming", Credit = 3 },
+            new Subject { SubjectId = 2, SubjectCode = "CS201", SubjectName = "Data Structures", Credit = 4 },
+            new Subject { SubjectId = 3, SubjectCode = "CS202", SubjectName = "Web Development", Credit = 3 },
+            new Subject { SubjectId = 4, SubjectCode = "CS301", SubjectName = "Database Design", Credit = 4 },
+            new Subject { SubjectId = 5, SubjectCode = "CS302", SubjectName = "Software Engineering", Credit = 3 },
+            new Subject { SubjectId = 6, SubjectCode = "MATH101", SubjectName = "Calculus I", Credit = 4 },
+            new Subject { SubjectId = 7, SubjectCode = "MATH201", SubjectName = "Linear Algebra", Credit = 3 },
+            new Subject { SubjectId = 8, SubjectCode = "ENG101", SubjectName = "English Communication", Credit = 3 },
+            new Subject { SubjectId = 9, SubjectCode = "BUS101", SubjectName = "Business Management", Credit = 3 },
+            new Subject { SubjectId = 10, SubjectCode = "PHY101", SubjectName = "Physics I", Credit = 4 }
+        );
+
+        await db.Database.OpenConnectionAsync();
+        try
         {
-            var seedSql = await File.ReadAllTextAsync(seedScriptPath);
-            // Split by lines and remove Students/Enrollments insertions/deletions/reseeds
-            var lines = seedSql.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.None);
-            var filteredLines = lines.Where(line => 
-                !line.Contains("Students") && 
-                !line.Contains("STUDENTS") && 
-                !line.Contains("Enrollments") && 
-                !line.Contains("ENROLLMENTS")
-            ).ToList();
-
-            var filteredSql = string.Join("\n", filteredLines);
-            await db.Database.ExecuteSqlRawAsync(filteredSql);
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Subjects ON");
+            await db.SaveChangesAsync();
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Subjects OFF");
         }
+        finally { await db.Database.CloseConnectionAsync(); }
+
+        db.Courses.AddRange(
+            new Course { CourseId = 1, CourseName = "Programming Basics A", SemesterId = 1, SubjectId = 1 },
+            new Course { CourseId = 2, CourseName = "Programming Basics B", SemesterId = 1, SubjectId = 1 },
+            new Course { CourseId = 3, CourseName = "Calculus I A", SemesterId = 1, SubjectId = 6 },
+            new Course { CourseId = 4, CourseName = "Calculus I B", SemesterId = 1, SubjectId = 6 },
+            new Course { CourseId = 5, CourseName = "English Communication A", SemesterId = 1, SubjectId = 8 },
+            new Course { CourseId = 6, CourseName = "Data Structures A", SemesterId = 2, SubjectId = 2 },
+            new Course { CourseId = 7, CourseName = "Web Development A", SemesterId = 2, SubjectId = 3 },
+            new Course { CourseId = 8, CourseName = "Database Design A", SemesterId = 2, SubjectId = 4 },
+            new Course { CourseId = 9, CourseName = "Linear Algebra A", SemesterId = 2, SubjectId = 7 },
+            new Course { CourseId = 10, CourseName = "Business Management A", SemesterId = 2, SubjectId = 9 },
+            new Course { CourseId = 11, CourseName = "Software Engineering A", SemesterId = 3, SubjectId = 5 },
+            new Course { CourseId = 12, CourseName = "Physics I A", SemesterId = 3, SubjectId = 10 },
+            new Course { CourseId = 13, CourseName = "Programming Advanced", SemesterId = 3, SubjectId = 1 },
+            new Course { CourseId = 14, CourseName = "Web Development B", SemesterId = 3, SubjectId = 3 },
+            new Course { CourseId = 15, CourseName = "Data Structures B", SemesterId = 4, SubjectId = 2 },
+            new Course { CourseId = 16, CourseName = "Database Design B", SemesterId = 4, SubjectId = 4 },
+            new Course { CourseId = 17, CourseName = "Software Engineering B", SemesterId = 4, SubjectId = 5 },
+            new Course { CourseId = 18, CourseName = "Physics I B", SemesterId = 4, SubjectId = 10 },
+            new Course { CourseId = 19, CourseName = "Advanced Programming", SemesterId = 5, SubjectId = 1 },
+            new Course { CourseId = 20, CourseName = "Machine Learning Basics", SemesterId = 5, SubjectId = 2 }
+        );
+        
+        await db.Database.OpenConnectionAsync();
+        try
+        {
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Courses ON");
+            await db.SaveChangesAsync();
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Courses OFF");
+        }
+        finally { await db.Database.CloseConnectionAsync(); }
+    }
+
+    if (!await db.Students.AnyAsync())
+    {
+        for (int i = 1; i <= 50; i++)
+        {
+            db.Students.Add(new Student
+            {
+                StudentId = i,
+                FullName = $"Dummy Student {i}",
+                Email = $"dummy{i}@email.com",
+                DateOfBirth = DateTime.UtcNow
+            });
+        }
+        await db.Database.OpenConnectionAsync();
+        try
+        {
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Students ON");
+            await db.SaveChangesAsync();
+            await db.Database.ExecuteSqlRawAsync("SET IDENTITY_INSERT Students OFF");
+        }
+        finally { await db.Database.CloseConnectionAsync(); }
     }
 
     if (!await db.Enrollments.AnyAsync())

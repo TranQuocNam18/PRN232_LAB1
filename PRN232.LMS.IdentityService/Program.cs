@@ -23,7 +23,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Database Context
-builder.Services.AddDbContext<LmsDbContext, IdentityDbContext>(opt =>
+builder.Services.AddDbContext<LmsDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Repositories & Services
@@ -86,7 +86,7 @@ var app = builder.Build();
 // Run Migrations and Seeding
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
     await db.Database.MigrateAsync();
 
     var adminUser = await db.Users.FirstOrDefaultAsync(u => u.Username == "admin");

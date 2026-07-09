@@ -46,6 +46,15 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/identity/swagger/v1/swagger.json", "Identity Service API v1");
+    c.SwaggerEndpoint("/swagger/student/swagger/v1/swagger.json", "Student Service API v1");
+    c.SwaggerEndpoint("/swagger/student/swagger/v2/swagger.json", "Student Service API v2");
+    c.SwaggerEndpoint("/swagger/course/swagger/v1/swagger.json", "Course Service API v1");
+    c.RoutePrefix = "swagger";
+});
+
 app.MapReverseProxy();
 
 app.Run();

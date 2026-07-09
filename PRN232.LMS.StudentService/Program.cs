@@ -25,7 +25,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog();
 
 // Database Context
-builder.Services.AddDbContext<LmsDbContext, StudentDbContext>(opt =>
+builder.Services.AddDbContext<LmsDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Repositories & Services
@@ -114,7 +114,7 @@ var app = builder.Build();
 // Run Migrations and Seeding
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<StudentDbContext>();
+    var db = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
     await db.Database.MigrateAsync();
 
     if (!await db.Students.AnyAsync())
