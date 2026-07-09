@@ -10,7 +10,7 @@ namespace PRN232.LMS.Repositories.Data
 {
     public class LmsDbContext : DbContext
     {
-        public LmsDbContext(DbContextOptions<LmsDbContext> options) : base(options) { }
+        public LmsDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Subject> Subjects { get; set; }
