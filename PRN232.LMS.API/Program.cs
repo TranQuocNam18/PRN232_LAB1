@@ -45,29 +45,54 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
-    await db.Database.MigrateAsync();
+    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 
-    if (!await db.Semesters.AnyAsync())
+    int maxRetries = 6;
+    int delaySeconds = 5;
+    for (int i = 1; i <= maxRetries; i++)
     {
-        DirectoryInfo? currentDirectory = new(AppContext.BaseDirectory);
-        string? seedScriptPath = null;
-
-        while (currentDirectory != null && seedScriptPath == null)
+        try
         {
-            var candidatePath = Path.Combine(currentDirectory.FullName, "seed-data.sql");
-            if (File.Exists(candidatePath))
+            logger.LogInformation("Attempting to apply database migrations (Attempt {Attempt}/{MaxRetries})...", i, maxRetries);
+            await db.Database.MigrateAsync();
+
+            if (!await db.Semesters.AnyAsync())
             {
-                seedScriptPath = candidatePath;
-                break;
+                DirectoryInfo? currentDirectory = new(AppContext.BaseDirectory);
+                string? seedScriptPath = null;
+
+                while (currentDirectory != null && seedScriptPath == null)
+                {
+                    var candidatePath = Path.Combine(currentDirectory.FullName, "seed-data.sql");
+                    if (File.Exists(candidatePath))
+                    {
+                        seedScriptPath = candidatePath;
+                        break;
+                    }
+
+                    currentDirectory = currentDirectory.Parent;
+                }
+
+                if (seedScriptPath != null)
+                {
+                    logger.LogInformation("Seeding database using script: {Path}", seedScriptPath);
+                    var seedSql = await File.ReadAllTextAsync(seedScriptPath);
+                    await db.Database.ExecuteSqlRawAsync(seedSql);
+                }
             }
-
-            currentDirectory = currentDirectory.Parent;
+            logger.LogInformation("Database migration and seeding completed successfully.");
+            break;
         }
-
-        if (seedScriptPath != null)
+        catch (Exception ex)
         {
-            var seedSql = await File.ReadAllTextAsync(seedScriptPath);
-            await db.Database.ExecuteSqlRawAsync(seedSql);
+            logger.LogWarning(ex, "Failed to connect to database or apply migrations.");
+            if (i == maxRetries)
+            {
+                logger.LogError(ex, "Maximum retries reached. Database is not available.");
+                throw;
+            }
+            logger.LogInformation("Waiting {DelaySeconds} seconds before next attempt...", delaySeconds);
+            await Task.Delay(TimeSpan.FromSeconds(delaySeconds));
         }
     }
 }
